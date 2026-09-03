@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java.kz.atu.lab.lab9.EventController">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+    <children>
+        <Label text="ОБРАБОТКА СОБЫТИЙ" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        
+        <HBox spacing="10.0" alignment="CENTER">
+            <TextField fx:id="txtInput" promptText="Введите текст..." prefWidth="300.0" onKeyReleased="#onTextChange" />
+            <Button text="Отправить" onAction="#onButtonClick" style="-fx-background-color: #3498db; -fx-text-fill: white;" />
+            <Button text="Очистить" onAction="#onClearClick" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" />
+        </HBox>
+        
+        <Label text="--- События компонентов ---" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7f8c8d;" />
+        <Label fx:id="lblEventInfo" text="Информация о событиях будет здесь" wrapText="true" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7; -fx-border-radius: 5px; -fx-background-radius: 5px;" maxWidth="500.0" />
+        
+        <Label text="--- События мыши (наведите на эту область) ---" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7f8c8d;" />
+        <Label fx:id="lblMouseInfo" text="Информация о мыши будет здесь" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" onMouseClicked="#onMouseClicked" wrapText="true" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-background-color: #ecf0f1; -fx-border-color: #bdc3c7; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-cursor: hand;" maxWidth="500.0" />
+    </children>
+</VBox>

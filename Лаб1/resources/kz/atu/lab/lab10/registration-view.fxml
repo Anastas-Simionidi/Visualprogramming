@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="12.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java.kz.atu.lab.lab10.RegistrationController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+    <children>
+        <Label text="РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="Заполните все поля для регистрации" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" />
+        
+        <GridPane hgap="10.0" vgap="10.0" alignment="CENTER">
+            <children>
+                <Label text="Имя:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+                <TextField fx:id="txtFirstName" promptText="Введите имя" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="250.0" />
+                
+                <Label text="Фамилия:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;" />
+                <TextField fx:id="txtLastName" promptText="Введите фамилию" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="250.0" />
+                
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;" />
+                <TextField fx:id="txtEmail" promptText="example@mail.com" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="250.0" />
+                
+                <Label text="Пароль:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;" />
+                <PasswordField fx:id="txtPassword" promptText="Минимум 6 символов" GridPane.columnIndex="1" GridPane.rowIndex="3" prefWidth="250.0" />
+                
+                <Label text="Подтверждение:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
+                <PasswordField fx:id="txtConfirmPassword" promptText="Повторите пароль" GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth="250.0" />
+            </children>
+        </GridPane>
+        
+        <CheckBox fx:id="chkAgree" text="Я согласен с условиями использования" style="-fx-font-size: 14px;" />
+        
+        <HBox spacing="15.0" alignment="CENTER">
+            <Button text="Зарегистрироваться" onAction="#onRegisterClick" prefWidth="180.0" style="-fx-font-size: 16px; -fx-background-color: #27ae60; -fx-text-fill: white;" />
+            <Button text="Очистить" onAction="#onClearClick" prefWidth="120.0" style="-fx-font-size: 16px; -fx-background-color: #e74c3c; -fx-text-fill: white;" />
+        </HBox>
+        
+        <Label fx:id="lblStatus" text="Введите данные для регистрации" style="-fx-font-size: 14px; -fx-text-fill: #7f8c8d;" />
+    </children>
+</VBox>
