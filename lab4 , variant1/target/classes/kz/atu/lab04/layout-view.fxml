@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" prefHeight="600.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kz.atu.lab04.LayoutController">
+
+    <!-- TOP: Верхняя панель -->
+    <top>
+        <HBox fx:id="topBar" alignment="CENTER_LEFT" spacing="10.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+            </padding>
+            <children>
+                <Label styleClass="header-label" text="Панель управления студентами" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="Добавить" onAction="#onSaveClick" />
+                <Button text="Очистить" onAction="#onClearClick" />
+            </children>
+        </HBox>
+    </top>
+
+    <!-- LEFT: Навигация -->
+    <left>
+        <VBox fx:id="navigationBox" prefWidth="170.0" spacing="8.0" styleClass="nav-box" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <Button maxWidth="1.7976931348623157E308" text="Студенты" />
+                <Button maxWidth="1.7976931348623157E308" text="Группы" />
+                <Button maxWidth="1.7976931348623157E308" text="Настройки" />
+                <Region VBox.vgrow="ALWAYS" />
+                <Button maxWidth="1.7976931348623157E308" text="О программе" onAction="#onAboutClick" />
+                <Button maxWidth="1.7976931348623157E308" text="Скрыть навигацию" onAction="#onToggleNavClick" />
+            </children>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Центральная область -->
+    <center>
+        <VBox fx:id="contentBox" spacing="10.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <!-- Форма ввода GridPane -->
+                <GridPane fx:id="formGrid" hgap="10.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                        <ColumnConstraints hgrow="ALWAYS" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="ФИО:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtFullName" maxWidth="1.7976931348623157E308" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Группа:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                        <TextField fx:id="txtGroup" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Label text="Курс:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="cmbCourse" maxWidth="1.7976931348623157E308" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+                        <!-- Самостоятельная часть: Форма обучения -->
+                        <Label text="Форма обучения:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                        <ComboBox fx:id="cmbStudyForm" maxWidth="1.7976931348623157E308" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+                        <!-- Самостоятельная часть: Примечание -->
+                        <Label text="Примечание:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                        <TextArea fx:id="txtNote" prefRowCount="2" maxWidth="1.7976931348623157E308" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+
+                        <Button fx:id="btnSave" text="Сохранить" onAction="#onSaveClick" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+                    </children>
+                </GridPane>
+
+                <!-- Таблица студентов с ростом VGrow -->
+                <TableView fx:id="tblStudents" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colFullName" prefWidth="180.0" text="ФИО">
+                            <cellValueFactory><PropertyValueFactory property="fullName" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colGroup" prefWidth="100.0" text="Группа">
+                            <cellValueFactory><PropertyValueFactory property="group" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colCourse" prefWidth="80.0" text="Курс">
+                            <cellValueFactory><PropertyValueFactory property="course" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colStudyForm" prefWidth="120.0" text="Форма">
+                            <cellValueFactory><PropertyValueFactory property="studyForm" /></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="colNote" prefWidth="150.0" text="Примечание">
+                            <cellValueFactory><PropertyValueFactory property="note" /></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM: Строка состояния -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" styleClass="status-bar" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+            </padding>
+            <children>
+                <Label fx:id="lblStatus" text="Статус: приложение готово" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
