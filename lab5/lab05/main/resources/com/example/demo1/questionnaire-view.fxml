@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.demo1.QuestionnaireController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="АНКЕТА СТУДЕНТА" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <Label text="ФИО:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtFullName" promptText="Введите ФИО" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="250.0"/>
+
+        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtEmail" promptText="example@mail.com" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Группа:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtGroup" promptText="Например, ИС-21" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    </GridPane>
+
+    <VBox spacing="5.0" alignment="CENTER_LEFT">
+        <Label text="Курс:" style="-fx-font-weight: bold;" />
+        <HBox spacing="15.0">
+            <fx:define>
+                <ToggleGroup fx:id="courseGroup" />
+            </fx:define>
+            <RadioButton fx:id="rbCourse1" text="1" toggleGroup="$courseGroup" />
+            <RadioButton fx:id="rbCourse2" text="2" toggleGroup="$courseGroup" />
+            <RadioButton fx:id="rbCourse3" text="3" toggleGroup="$courseGroup" />
+            <RadioButton fx:id="rbCourse4" text="4" toggleGroup="$courseGroup" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="5.0" alignment="CENTER_LEFT">
+        <Label text="Форма обучения:" style="-fx-font-weight: bold;" />
+        <HBox spacing="15.0">
+            <fx:define>
+                <ToggleGroup fx:id="studyFormGroup" />
+            </fx:define>
+            <RadioButton fx:id="rbFullTime" text="Очная" toggleGroup="$studyFormGroup" />
+            <RadioButton fx:id="rbOnline" text="Дистанционная" toggleGroup="$studyFormGroup" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="5.0" alignment="CENTER_LEFT">
+        <Label text="Дополнительно:" style="-fx-font-weight: bold;" />
+        <HBox spacing="15.0">
+            <CheckBox fx:id="chkDormitory" text="Общежитие" />
+            <CheckBox fx:id="chkScholarship" text="Стипендия" />
+            <CheckBox fx:id="chkActivist" text="Активист" />
+        </HBox>
+    </VBox>
+
+    <HBox spacing="10.0" alignment="CENTER">
+        <Button text="Сформировать" onAction="#onCreateClick" />
+        <Button text="Очистить" onAction="#onClearClick" />
+        <Button text="Выход" onAction="#onExitClick" />
+    </HBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-border-color: #cccccc; -fx-border-width: 1px; -fx-padding: 10px;">
+        <Label fx:id="lblResult" text="Результат:" wrapText="true" prefWidth="350.0" />
+    </VBox>
+</VBox>
