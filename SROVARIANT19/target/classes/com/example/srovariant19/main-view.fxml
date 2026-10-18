@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.srovariant19.FoodController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="Файл">
+                    <MenuItem text="Новый продукт" accelerator="Ctrl+N" onAction="#onAdd"/>
+                    <MenuItem text="Загрузить демо-данные" onAction="#onLoadDemo"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Выход" accelerator="Ctrl+Q" onAction="#onExit"/>
+                </Menu>
+                <Menu text="Правка">
+                    <MenuItem text="Редактировать" accelerator="Ctrl+E" onAction="#onEdit"/>
+                    <MenuItem text="Удалить" accelerator="Delete" onAction="#onDelete"/>
+                </Menu>
+                <Menu text="Вид">
+                    <MenuItem text="Сбросить фильтры" onAction="#onResetFilters"/>
+                </Menu>
+                <Menu text="Помощь">
+                    <MenuItem text="О программе" onAction="#onAbout"/>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <Button text="➕ Добавить" onAction="#onAdd"/>
+                <Button text="✏ Редактировать" onAction="#onEdit"/>
+                <Button text="🗑 Удалить" onAction="#onDelete"/>
+                <Separator/>
+                <Label text="Поиск:"/>
+                <TextField fx:id="searchField" promptText="Поиск по названию..." prefWidth="200"/>
+                <Label text="Категория:"/>
+                <ComboBox fx:id="categoryFilter" prefWidth="150"/>
+                <Button text="Сбросить" onAction="#onResetFilters"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <TableView fx:id="table" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="nameCol"           text="Название"       prefWidth="170"/>
+                    <TableColumn fx:id="categoryCol"       text="Категория"      prefWidth="120"/>
+                    <TableColumn fx:id="caloriesCol"       text="Ккал / 100 г"   prefWidth="100"/>
+                    <TableColumn fx:id="proteinsCol"       text="Белки / 100 г"  prefWidth="105"/>
+                    <TableColumn fx:id="fatsCol"           text="Жиры / 100 г"   prefWidth="105"/>
+                    <TableColumn fx:id="carbsCol"          text="Углев. / 100 г" prefWidth="115"/>
+                    <TableColumn fx:id="weightCol"         text="Вес, г"         prefWidth="80"/>
+                    <TableColumn fx:id="totalCaloriesCol"  text="Всего ккал"     prefWidth="100"/>
+                </columns>
+            </TableView>
+            <HBox>
+                <Label fx:id="totalsLabel" text="Итого: 0 ккал"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="5" right="10" bottom="5" left="10"/></padding>
+            <Label fx:id="statusLabel" text="Готово"/>
+        </HBox>
+    </bottom>
+</BorderPane>
