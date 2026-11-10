@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com" xmlns:fx="http://javafx.com" fx:controller="com.example.demo.HelloController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+    </padding>
+
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Поиск:"/>
+        <TextField fx:id="txtSearch" promptText="Введите название..."/>
+        <Label text="Категория:"/>
+        <ComboBox fx:id="cmbCategoryFilter"/>
+    </HBox>
+
+    <TableView fx:id="tableProducts" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colName" text="Наименование" prefWidth="200.0"/>
+            <TableColumn fx:id="colCategory" text="Категория" prefWidth="150.0"/>
+            <TableColumn fx:id="colQuantity" text="Количество" prefWidth="100.0"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label fx:id="lblCount" text="Найдено позиций: 0" style="-fx-font-weight: bold;"/>
+    </HBox>
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="30.0" />
+        </rowConstraints>
+        <children>
+            <Label text="Наименование:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Категория:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCategory" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Количество:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtQuantity" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        </children>
+    </GridPane>
+
+    <HBox spacing="15.0" alignment="CENTER_RIGHT">
+        <Button text="Добавить" onAction="#onAdd" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button text="Изменить" onAction="#onUpdate" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        <Button text="Удалить" onAction="#onDelete" style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+</VBox>
